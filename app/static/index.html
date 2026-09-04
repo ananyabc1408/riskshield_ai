@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RiskShield AI — Fraud Defense</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <div class="brand">RISK<span>SHIELD</span> AI</div>
+    <div class="subtitle">Temporal Risk Graph · Explainable Fraud Defense</div>
+  </div>
+  <div class="status"><i></i> LIVE ENGINE</div>
+</header>
+
+<main class="shell">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">REAL-TIME FINANCIAL RISK</p>
+      <h1>See the transaction.<br><em>See the network.</em></h1>
+      <p class="lead">A behavioural ML + temporal graph engine that turns transaction signals into an explainable risk decision.</p>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">MODEL STACK</div>
+      <div class="stack"><b>01</b> Supervised fraud model</div>
+      <div class="stack"><b>02</b> Behavioural anomaly detector</div>
+      <div class="stack"><b>03</b> Temporal relationship graph</div>
+      <div class="stack"><b>04</b> Human feedback loop</div>
+    </div>
+  </section>
+
+  <section class="kpis" id="kpis"></section>
+
+  <section class="grid">
+    <div class="panel scorer">
+      <div class="panel-head"><div><span class="tag">LIVE SCORER</span><h2>Score a transaction</h2></div><button class="ghost" onclick="loadDemo()">Load high-risk demo</button></div>
+      <form id="scoreForm">
+        <div class="fields">
+          <label>Transaction ID<input id="transaction_id" value="LIVE_TX_001"></label>
+          <label>Amount (₹)<input id="amount" type="number" value="25000"></label>
+          <label>Customer ID<input id="customer_id" value="CUST_DEMO"></label>
+          <label>Merchant ID<input id="merchant_id" value="MERCHANT_040"></label>
+          <label>Device ID<input id="device_id" value="DEV_SHARED"></label>
+          <label>Hour (0–23)<input id="hour" type="number" min="0" max="23" value="23"></label>
+          <label>Failed attempts<input id="failed_attempts" type="number" value="5"></label>
+          <label>Customer avg ₹<input id="customer_avg_amount" type="number" value="1200"></label>
+          <label>Velocity 1h<input id="velocity_1h" type="number" value="8"></label>
+          <label>Velocity 24h<input id="velocity_24h" type="number" value="15"></label>
+          <label>Customer frequency<input id="customer_frequency" type="number" value="3"></label>
+          <label>Merchant frequency<input id="merchant_frequency" type="number" value="150"></label>
+        </div>
+        <div class="toggles">
+          <label><input id="device_changed" type="checkbox" checked> Device changed</label>
+          <label><input id="location_changed" type="checkbox" checked> Location changed</label>
+          <label><input id="ring_score" type="number" step="0.05" min="0" max="1" value="0.90"> Ring score</label>
+        </div>
+        <button class="primary" type="submit">RUN RISK ANALYSIS →</button>
+      </form>
+    </div>
+
+    <div class="panel result-panel">
+      <div class="panel-head"><div><span class="tag">DECISION</span><h2>Risk verdict</h2></div></div>
+      <div id="result" class="empty">Run a transaction to see the explainable verdict.</div>
+    </div>
+  </section>
+
+  <section class="grid lower">
+    <div class="panel">
+      <div class="panel-head"><div><span class="tag">MODEL HEALTH</span><h2>Validation & reference metrics</h2></div><button class="ghost" onclick="loadMetrics()">Refresh</button></div>
+      <div id="metrics"></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><div><span class="tag">ANALYST QUEUE</span><h2>Recent high-risk transactions</h2></div></div>
+      <div id="transactions"></div>
+    </div>
+  </section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>
